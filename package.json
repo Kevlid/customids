@@ -1,0 +1,23 @@
+{
+    "name": "@kevlid/customids",
+    "version": "0.0.1",
+    "description": "A tool for short custom IDs Discord",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "keywords": [
+        "discord",
+        "customid",
+        "short",
+        "encode",
+        "decode"
+    ],
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "LICENSE",
+        "README.md"
+    ],
+    "author": "kevlid",
+    "license": "ISC",
+    "packageManager": "pnpm@10.15.1"
+}
