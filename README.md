@@ -13,6 +13,6 @@ npm install @kevlid/customids
 ## Usage
 
 ```js
-const { encode, decode } = require('@kevlid/customids');
+const { encodeCustomId, decodeCustomId, encodeToken, decodeToken } = require('@kevlid/customids');
 ```
 

@@ -154,8 +154,6 @@ module.exports = {
     decodeCustomId,
     encodeToken,
     decodeToken,
-    encodeValue,
-    decodeValue,
     toBase62,
     fromBase62,
 };
