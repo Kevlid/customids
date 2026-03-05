@@ -97,18 +97,6 @@ function decodeToken(token) {
     }
 }
 
-function encodeKey(key) {
-    const encodedLength = toBase62(BigInt(key.length));
-    return encodedLength + key;
-}
-
-function decodeKey(string, position) {
-    const length = Number(fromBase62(string[position]));
-    const value = string.slice(position + 1, position + 1 + length);
-    const next = position + 1 + length;
-    return { value, next };
-}
-
 function encodeValue(value) {
     const token = encodeToken(value);
     return toBase62(BigInt(token.length)) + token;
@@ -121,8 +109,8 @@ function decodeValue(string, position = 0) {
     return { value, next: position + 1 + length };
 }
 
-function encodeCustomId(action, values = []) {
-    let customId = encodeKey(action) + toBase62(BigInt(values.length));
+function encodeCustomId(values = []) {
+    let customId = toBase62(BigInt(values.length));
     for (const value of values) {
         customId += encodeValue(value);
     }
@@ -134,10 +122,6 @@ function encodeCustomId(action, values = []) {
 
 function decodeCustomId(customId) {
     let position = 0;
-    const actionResult = decodeKey(customId, position);
-    const action = actionResult.value;
-    position = actionResult.next;
-
     const valueCount = Number(fromBase62(customId[position++]));
     const values = [];
     for (let i = 0; i < valueCount; i++) {
@@ -145,8 +129,7 @@ function decodeCustomId(customId) {
         values.push(result.value);
         position = result.next;
     }
-
-    return { action, values };
+    return { values };
 }
 
 module.exports = {
