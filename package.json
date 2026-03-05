@@ -1,6 +1,6 @@
 {
     "name": "@kevlid/customids",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A tool for short custom IDs Discord",
     "main": "index.js",
     "types": "index.d.ts",
